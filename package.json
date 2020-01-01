@@ -1,0 +1,32 @@
+{
+  "name": "jflix",
+  "version": "1.0.0",
+  "description": "Jflix allows you to check out what TV series or movies Junhong like",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node backend/server.ts --extensions '.ts,.tsx'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioneone/Jflix.git"
+  },
+  "author": "Junhong Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ioneone/Jflix/issues"
+  },
+  "homepage": "https://github.com/ioneone/Jflix#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7"
+  }
+}
