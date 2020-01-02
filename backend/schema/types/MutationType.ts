@@ -116,13 +116,13 @@ const MutationType = new GraphQLObjectType({
         const savedSeries = await series.save();
 
         const maturityRating = await MaturityRating.findById(savedSeries.maturity_rating_id);
-        maturityRating.movie_ids.push(savedSeries._id);
+        maturityRating.series_ids.push(savedSeries._id);
         await maturityRating.save();
 
         const genres = await SeriesGenre.find({
           _id: { $in: savedSeries.genre_ids }
         });
-        genres.forEach(genre => genre.movie_ids.push(savedSeries._id));
+        genres.forEach(genre => genre.series_ids.push(savedSeries._id));
         await Promise.all(genres.map(genre => genre.save()));
 
         return savedSeries;

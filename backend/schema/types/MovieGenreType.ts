@@ -1,8 +1,9 @@
 import {GraphQLID, GraphQLList, GraphQLObjectType, GraphQLString} from "graphql";
 import MovieType from "./MovieType";
 import Movie from "../../models/Movie";
+import {IMovieGenre} from "../../models/MovieGenre";
 
-const MovieGenreType = new GraphQLObjectType({
+const MovieGenreType: GraphQLObjectType = new GraphQLObjectType<IMovieGenre>({
   name: "MovieGenre",
   fields: () => ({
     _id: { type: GraphQLID },

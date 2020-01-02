@@ -3,8 +3,9 @@ import MaturityRatingType from "./MaturityRatingType";
 import MaturityRating from "../../models/MaturityRating";
 import SeriesGenreType from "./SeriesGenreType";
 import SeriesGenre from "../../models/SeriesGenre";
+import {ISeries} from "../../models/Series";
 
-const SeriesType = new GraphQLObjectType({
+const SeriesType = new GraphQLObjectType<ISeries>({
   name: "Series",
   fields: () => ({
     _id: { type: GraphQLID },

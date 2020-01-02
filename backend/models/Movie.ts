@@ -1,4 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+
+export interface IMovie extends Document {
+  title: string;
+  description: string;
+  released_year: string;
+  maturity_rating_id: string;
+  genre_ids: [string];
+}
 
 const MovieSchema = new mongoose.Schema({
   title: String,
@@ -8,6 +16,6 @@ const MovieSchema = new mongoose.Schema({
   genre_ids: [String]
 });
 
-const Movie = mongoose.model("Movie", MovieSchema);
+const Movie = mongoose.model<IMovie>("Movie", MovieSchema);
 
 export default Movie;

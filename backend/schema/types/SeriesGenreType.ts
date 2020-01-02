@@ -1,9 +1,10 @@
 import {GraphQLObjectType, GraphQLList, GraphQLString, GraphQLID} from "graphql";
 import SeriesType from "./SeriesType";
 import Series from "../../models/Series";
+import {ISeriesGenre} from "../../models/SeriesGenre";
 
 
-const SeriesGenreType = new GraphQLObjectType({
+const SeriesGenreType: GraphQLObjectType = new GraphQLObjectType<ISeriesGenre>({
   name: "SeriesGenre",
   fields: () => ({
     _id: { type: GraphQLID },

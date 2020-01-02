@@ -1,4 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+
+export interface ISeries extends Document {
+  title: string;
+  description: string;
+  released_year: string;
+  maturity_rating_id: string;
+  genre_ids: [string];
+}
 
 const SeriesSchema = new mongoose.Schema({
   title: String,
@@ -8,6 +16,6 @@ const SeriesSchema = new mongoose.Schema({
   genre_ids: [String]
 });
 
-const Series = mongoose.model("Series", SeriesSchema);
+const Series = mongoose.model<ISeries>("Series", SeriesSchema);
 
 export default Series;

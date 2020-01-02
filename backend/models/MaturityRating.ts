@@ -1,4 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Document }  from "mongoose";
+
+export interface IMaturityRating extends Document {
+  name: string;
+  movie_ids: [string];
+  series_ids: [string];
+}
 
 const MaturityRatingSchema = new mongoose.Schema({
   name: String,
@@ -6,7 +12,7 @@ const MaturityRatingSchema = new mongoose.Schema({
   series_ids: [String]
 });
 
-const MaturityRating = mongoose.model("MaturityRating", MaturityRatingSchema);
+const MaturityRating = mongoose.model<IMaturityRating>("MaturityRating", MaturityRatingSchema);
 
 export default MaturityRating;
 

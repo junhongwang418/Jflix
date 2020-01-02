@@ -2,8 +2,9 @@ import {GraphQLID, GraphQLList, GraphQLObjectType, GraphQLString} from "graphql"
 import MovieType from "./MovieType";
 import SeriesType from "./SeriesType";
 import Movie from "../../models/Movie";
+import { IMaturityRating } from "../../models/MaturityRating";
 
-const MaturityRatingType = new GraphQLObjectType({
+const MaturityRatingType: GraphQLObjectType = new GraphQLObjectType<IMaturityRating>({
   name: "MaturityRating",
   fields: () => ({
     _id: { type: GraphQLID },
