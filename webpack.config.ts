@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 import webpack from "webpack";
 
 const config: webpack.Configuration = {
@@ -14,16 +15,27 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        use: ['babel-loader'],
+        use: 'babel-loader',
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: 'file-loader',
       }
     ]
   },
   plugins: [
+    new FaviconsWebpackPlugin("./frontend/public/favicon.ico"),
     new HtmlWebpackPlugin({
       template: 'frontend/public/index.html'
     })
+
   ]
 };
 
