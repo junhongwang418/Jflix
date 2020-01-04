@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
-const Root = () => {
-  return <div>Jflix</div>
-};
+import * as ReactDOM from "react-dom";
+import Root from "./Root";
 
 ReactDOM.render(
   <Root/>,

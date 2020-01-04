@@ -19,8 +19,8 @@ const MutationType = new GraphQLObjectType({
         title: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
         released_year: { type: new GraphQLNonNull(GraphQLInt) },
-        maturity_rating_id: { type: new GraphQLNonNull(GraphQLID) },
-        genre_ids: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLID))) }
+        maturity_rating_id: { type: GraphQLID },
+        genre_ids: { type: new GraphQLList(GraphQLID) }
       },
       resolve: async (parentValue, args) => {
         const {
@@ -41,15 +41,15 @@ const MutationType = new GraphQLObjectType({
 
         const savedMovie = await movie.save();
 
-        const maturityRating = await MaturityRating.findById(savedMovie.maturity_rating_id);
-        maturityRating.movie_ids.push(savedMovie._id);
-        await maturityRating.save();
+        // const maturityRating = await MaturityRating.findById(savedMovie.maturity_rating_id);
+        // maturityRating.movie_ids.push(savedMovie._id);
+        // await maturityRating.save();
 
-        const genres = await MovieGenre.find({
-          _id: { $in: savedMovie.genre_ids }
-        });
-        genres.forEach(genre => genre.movie_ids.push(savedMovie._id));
-        await Promise.all(genres.map(genre => genre.save()));
+        // const genres = await MovieGenre.find({
+        //   _id: { $in: savedMovie.genre_ids }
+        // });
+        // genres.forEach(genre => genre.movie_ids.push(savedMovie._id));
+        // await Promise.all(genres.map(genre => genre.save()));
 
         return savedMovie;
       }

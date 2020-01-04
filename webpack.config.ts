@@ -7,11 +7,14 @@ const config: webpack.Configuration = {
     path: '/',
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', 'jsx', '.ts', '.tsx']
+  },
   mode: 'development',
   module: {
     rules: [
       {
-        use: ['ts-loader'],
+        use: ['babel-loader'],
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/
       }
