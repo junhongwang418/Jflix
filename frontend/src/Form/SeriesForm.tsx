@@ -1,23 +1,16 @@
-import React, { ChangeEvent } from "react";
-import { TextField } from "@material-ui/core";
-import MenuItem from "@material-ui/core/MenuItem";
-import { gql } from "apollo-boost";
-import { Mutation } from "react-apollo";
+import React, {ChangeEvent} from "react";
+import {TextField, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import {AddMovieMutation, AddMovieMutationData, AddMovieMutationVariables} from "./Mutation/AddMovieMutation";
-import {GetAllMoviesQuery} from "./Query/GetAllMoviesQuery";
 
-export interface MovieFormProps {}
-
-interface MovieFormState {
+interface SeriesFormProps {
   title?: string;
   description?: string;
   releasedYear?: string;
 }
 
-class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
+class SeriesForm extends React.Component<SeriesFormProps> {
 
-  constructor(props: MovieFormProps) {
+  constructor(props: SeriesFormProps) {
     super(props);
 
     this.state = {
@@ -45,7 +38,7 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
 
     return (
       <div>
-        <h3>Movie Form</h3>
+        <Typography variant="h5" color="textPrimary">Series Form</Typography>
         <div>
           <TextField
             required
@@ -79,39 +72,17 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
             fullWidth
           />
         </div>
-        <Mutation<AddMovieMutationData, AddMovieMutationVariables> mutation={AddMovieMutation}>
-          {(addMovie, { loading, data }) => {
-
-            return (
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={e => {
-                  addMovie({
-                    variables: {
-                      title,
-                      description,
-                      released_year: parseInt(releasedYear)
-                    },
-                    refetchQueries: [
-                      { query: GetAllMoviesQuery }
-                    ]
-                  });
-                  this.setState({ title: "", description: "", releasedYear: "" });
-
-                }}
-              >
-                Submit
-              </Button>
-            );
-
-          }}
-
-        </Mutation>
+        <div>
+          <Button
+            variant="outlined"
+          >
+            Submit
+          </Button>
+        </div>
       </div>
     );
   }
 
 }
 
-export default MovieForm;
+export default SeriesForm;

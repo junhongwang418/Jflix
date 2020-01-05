@@ -13,7 +13,7 @@ const MovieSchema = new mongoose.Schema({
   description: String,
   released_year: Number,
   maturity_rating_id: String,
-  genre_ids: [String]
+  genre_ids: [String],
 });
 
 const Movie = mongoose.model<IMovie>("Movie", MovieSchema);

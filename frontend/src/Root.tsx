@@ -1,13 +1,19 @@
 import React from "react";
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import MovieList from "./MovieList";
-import MovieForm from "./MovieForm";
+import MovieList from "./List/MovieList";
+import MovieForm from "./Form/MovieForm";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import NavigationBar from "./NavigationBar";
 import {Container} from "@material-ui/core";
+import MaturityRatingForm from "./Form/MaturityRatingForm";
+import MovieGenreForm from "./Form/MovieGenreForm";
+import SeriesForm from "./Form/SeriesForm";
+import SeriesGenreForm from "./Form/SeriesGenreForm";
+import MaturityRatingList from "./List/MaturityRatingList";
+import MovieGenreList from "./List/MovieGenreList";
 
 const client = new ApolloClient({});
 
@@ -29,6 +35,8 @@ class Root extends React.Component {
               <Switch>
                 <Route exact path="/">
                   <MovieList />
+                  <MovieGenreList />
+                  <MaturityRatingList />
                 </Route>
                 <Route path="/movies">
                   <MovieList />
@@ -38,6 +46,10 @@ class Root extends React.Component {
                 </Route>
                 <Route path="/forms">
                   <MovieForm />
+                  <MovieGenreForm />
+                  <SeriesForm />
+                  <SeriesGenreForm />
+                  <MaturityRatingForm />
                 </Route>
               </Switch>
             </Container>

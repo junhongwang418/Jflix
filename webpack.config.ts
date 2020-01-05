@@ -14,16 +14,19 @@ const config: webpack.Configuration = {
   mode: 'development',
   module: {
     rules: [
+      // tell webpack how to bundle typescript and ES6 files
       {
         use: 'babel-loader',
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/
       },
+      // tell webpack how to bundle css files
       {
         test:/\.css$/,
         use:['style-loader','css-loader'],
         exclude: /node_modules/
       },
+      // tell webpack how to bundle media files
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: 'file-loader',

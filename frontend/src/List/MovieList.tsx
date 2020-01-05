@@ -1,7 +1,6 @@
 import React from "react";
-import { gql } from "apollo-boost";
 import { Query } from 'react-apollo';
-import {GetAllMoviesQuery, GetAllMoviesQueryData} from "./Query/GetAllMoviesQuery";
+import {GetAllMoviesQuery, GetAllMoviesQueryData} from "../Query/GetAllMoviesQuery";
 import {Typography} from "@material-ui/core";
 
 class MovieList extends React.Component {
@@ -25,11 +24,9 @@ class MovieList extends React.Component {
               <ul>
                 {
                   data.movies.map(movie =>
-                    <li>
+                    <li key={movie._id}>
                       <Typography color="textPrimary" gutterBottom>
-                        {movie.title},
-                        {movie.description},
-                        {movie.released_year}
+                        Title: {movie.title}, Year: {movie.released_year}
                       </Typography>
                     </li>
                   )
