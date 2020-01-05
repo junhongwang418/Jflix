@@ -24,6 +24,7 @@ interface MovieFormState {
     _id: string;
     name: string;
   }>;
+  image: string;
   snackBarOpen: boolean;
   snackBarMessage: string;
 }
@@ -39,6 +40,7 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
       releasedYear: "",
       maturityRatingId: "",
       genres: [],
+      image: "",
       snackBarOpen: false,
       snackBarMessage: ""
     };
@@ -72,6 +74,10 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
     this.setState({ genres: value });
   };
 
+  private handleImageChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    this.setState({ image: e.target.value });
+  };
+
   render() {
 
     const {
@@ -80,6 +86,7 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
       releasedYear,
       maturityRatingId,
       genres,
+      image,
       snackBarOpen,
       snackBarMessage
     } = this.state;
@@ -197,6 +204,17 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
 
         </Query>
 
+        <div>
+          <TextField
+            required
+            label="Image URL"
+            value={image}
+            variant="outlined"
+            onChange={this.handleImageChange}
+            fullWidth
+          />
+        </div>
+
         <Mutation<AddMovieMutationData, AddMovieMutationVariables>
           mutation={AddMovieMutation}
           onCompleted={(data) => this.handleSnackBarOpen(`Added "${data.movie.title}"`)}
@@ -212,6 +230,7 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
                   const movieTitle = title.length > 0 ? title : null;
                   const movieDescription = description.length > 0 ? description : null;
                   const movieMaturityRatingId = maturityRatingId.length > 0 ? maturityRatingId : null;
+                  const movieImage = image.length > 0 ? image : null;
 
                   addMovie({
                     variables: {
@@ -219,7 +238,8 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
                       description: movieDescription,
                       released_year: parseInt(releasedYear),
                       maturity_rating_id: movieMaturityRatingId,
-                      genre_ids: genres.map(genre => genre._id)
+                      genre_ids: genres.map(genre => genre._id),
+                      image: movieImage
                     },
                     refetchQueries: [
                       { query: GetAllMoviesQuery }
@@ -230,7 +250,8 @@ class MovieForm extends React.Component<MovieFormProps, MovieFormState> {
                     title: "", description: "",
                     releasedYear: "",
                     maturityRatingId: "",
-                    genres: []
+                    genres: [],
+                    image: ""
                   });
 
                 }}

@@ -7,6 +7,7 @@ export const GetAllMoviesQuery = gql`
       title
       description
       released_year
+      image
     }
   }
 `;
@@ -17,5 +18,6 @@ export interface GetAllMoviesQueryData {
     title: string;
     description: string;
     released_year: number;
+    image: string;
   }>;
 }

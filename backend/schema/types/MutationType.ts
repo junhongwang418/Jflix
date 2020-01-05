@@ -20,7 +20,8 @@ const MutationType = new GraphQLObjectType({
         description: { type: new GraphQLNonNull(GraphQLString) },
         released_year: { type: new GraphQLNonNull(GraphQLInt) },
         maturity_rating_id: { type: new GraphQLNonNull(GraphQLID) },
-        genre_ids: { type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLID))) }
+        genre_ids: { type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLID))) },
+        image: { type: new GraphQLNonNull(GraphQLString) }
       },
       resolve: async (parentValue, args) => {
         const {
@@ -28,7 +29,8 @@ const MutationType = new GraphQLObjectType({
           description,
           released_year,
           maturity_rating_id,
-          genre_ids
+          genre_ids,
+          image
         } = args;
 
         const movie = new Movie({
@@ -36,7 +38,8 @@ const MutationType = new GraphQLObjectType({
           description,
           released_year,
           maturity_rating_id,
-          genre_ids
+          genre_ids,
+          image
         });
 
         const savedMovie = await movie.save();

@@ -26,7 +26,8 @@ const MovieType = new GraphQLObjectType({
           _id: { $in: parentValue.genre_ids }
         });
       }
-    }
+    },
+    image: { type: GraphQLString }
   })
 });
 

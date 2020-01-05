@@ -6,14 +6,16 @@ export const AddMovieMutation = gql`
     $description: String!, 
     $released_year: Int!,
     $maturity_rating_id: ID!,
-    $genre_ids: [ID!]!
+    $genre_ids: [ID!]!,
+    $image: String!
   ) {
     movie: addMovie(
       title: $title, 
       description: $description, 
       released_year: $released_year,
       maturity_rating_id: $maturity_rating_id,
-      genre_ids: $genre_ids
+      genre_ids: $genre_ids,
+      image: $image
     ) {
       _id
       title
@@ -34,5 +36,6 @@ export interface AddMovieMutationVariables {
   released_year: number;
   maturity_rating_id: string;
   genre_ids: Array<string>;
+  image: string;
 }
 
