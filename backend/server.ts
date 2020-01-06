@@ -29,6 +29,6 @@ app.use("/graphql", graphqlHTTP({
   graphiql: true
 }));
 
-app.listen(4000, () => {
-  console.log("Listening to port 4000");
+app.listen(process.env.PORT || 80, () => {
+  console.log(`Listening to port ${process.env.PORT || 80}`);
 });
