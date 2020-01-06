@@ -15,15 +15,3 @@ const MaturityRatingSchema = new mongoose.Schema({
 const MaturityRating = mongoose.model<IMaturityRating>("MaturityRating", MaturityRatingSchema);
 
 export default MaturityRating;
-
-const maturityRatingNames = [
-  "G",
-  "TV-Y",
-  "TV-G",
-  "PG",
-  "TV-Y7",
-  "TV-Y7-FV",
-  "TV-PG"
-];
-
-export { maturityRatingNames };

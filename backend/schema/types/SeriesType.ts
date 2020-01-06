@@ -25,7 +25,8 @@ const SeriesType = new GraphQLObjectType<ISeries>({
           _id: { $in: parentValue.genre_ids }
         });
       }
-    }
+    },
+    image: { type: GraphQLString }
   })
 });
 

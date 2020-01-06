@@ -14,6 +14,8 @@ import SeriesForm from "./Form/SeriesForm";
 import SeriesGenreForm from "./Form/SeriesGenreForm";
 import MaturityRatingList from "./List/MaturityRatingList";
 import MovieGenreList from "./List/MovieGenreList";
+import SeriesList from "./List/SeriesList";
+import SeriesGenreList from "./List/SeriesGenreList";
 
 const client = new ApolloClient({});
 
@@ -35,22 +37,24 @@ class Root extends React.Component {
               <Switch>
                 <Route exact path="/">
                   <MovieList />
+                  <SeriesList />
                   <MovieGenreList />
+                  <SeriesGenreList />
                   <MaturityRatingList />
                 </Route>
                 <Route path="/movies">
                   <MovieList />
                 </Route>
                 <Route path="/series">
-                  <MovieList />
+                  <SeriesList />
                 </Route>
-                <Route path="/forms">
-                  <MovieForm />
-                  <MovieGenreForm />
-                  <SeriesForm />
-                  <SeriesGenreForm />
-                  <MaturityRatingForm />
-                </Route>
+                {/*<Route path="/forms">*/}
+                {/*  <MovieForm />*/}
+                {/*  <MovieGenreForm />*/}
+                {/*  <SeriesForm />*/}
+                {/*  <SeriesGenreForm />*/}
+                {/*  <MaturityRatingForm />*/}
+                {/*</Route>*/}
               </Switch>
             </Container>
           </Router>

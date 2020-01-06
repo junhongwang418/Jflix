@@ -1,8 +1,8 @@
 import {gql} from "apollo-boost";
 
-export const GetAllMoviesQuery = gql`
+export const GetAllSeriesQuery = gql`
   query {
-    movies: getAllMovies {
+    series: getAllSeries {
       _id
       title
       description
@@ -20,11 +20,11 @@ export const GetAllMoviesQuery = gql`
   }
 `;
 
-export interface GetAllMoviesQueryData {
-  movies: Array<MovieData>;
+export interface GetAllSeriesQueryData {
+  series: Array<SeriesData>;
 }
 
-export interface MovieData {
+export interface SeriesData {
   _id: string;
   title: string;
   description: string;

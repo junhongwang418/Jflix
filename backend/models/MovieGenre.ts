@@ -12,26 +12,3 @@ const MovieGenreSchema = new mongoose.Schema({
 const MovieGenre = mongoose.model<IMovieGenre>("MovieGenre", MovieGenreSchema);
 
 export default MovieGenre;
-
-const movieGenreNames = [
-  "Thriller",
-  "Psychological Thrillers",
-  "Crime Thrillers",
-  "Sci-Fi Thrillers",
-  "Teen Movies",
-  "Japanese Movies",
-  "Drama Anime",
-  "Anime Features",
-  "Action & Adventure",
-  "Action Thrillers",
-  "Sci-Fi & Fantasy",
-  "Adventures",
-  "Action Sci-Fi & Fantasy",
-  "Horror Movies",
-  "Sci-Fi Horror Movies",
-  "Creature Features",
-  "Dramas",
-  "Crime Dramas"
-];
-
-export { movieGenreNames };

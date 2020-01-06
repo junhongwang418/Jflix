@@ -74,15 +74,15 @@ class NavigationBar extends React.Component<NavigationBarProps> {
               Movies
             </NavLink>
           </Typography>
-          <Typography variant="body2">
-            <NavLink
-              to="/forms"
-              className={classes.inactiveLink}
-              activeClassName={classes.activeLink}
-            >
-              Forms
-            </NavLink>
-          </Typography>
+          {/*<Typography variant="body2">*/}
+          {/*  <NavLink*/}
+          {/*    to="/forms"*/}
+          {/*    className={classes.inactiveLink}*/}
+          {/*    activeClassName={classes.activeLink}*/}
+          {/*  >*/}
+          {/*    Forms*/}
+          {/*  </NavLink>*/}
+          {/*</Typography>*/}
         </Toolbar>
       </AppBar>
     );

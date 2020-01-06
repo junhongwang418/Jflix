@@ -95,9 +95,10 @@ const MutationType = new GraphQLObjectType({
       args: {
         title: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
-        released_year: { type: new GraphQLNonNull(GraphQLString) },
+        released_year: { type: new GraphQLNonNull(GraphQLInt) },
         maturity_rating_id: { type: new GraphQLNonNull(GraphQLID) },
-        genre_ids: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLID))) }
+        genre_ids: { type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLID))) },
+        image: { type: new GraphQLNonNull(GraphQLString) }
       },
       resolve: async (parentValue, args) => {
         const {
@@ -105,7 +106,8 @@ const MutationType = new GraphQLObjectType({
           description,
           released_year,
           maturity_rating_id,
-          genre_ids
+          genre_ids,
+          image
         } = args;
 
         const series = new Series({
@@ -113,7 +115,8 @@ const MutationType = new GraphQLObjectType({
           description,
           released_year,
           maturity_rating_id,
-          genre_ids
+          genre_ids,
+          image
         });
 
         const savedSeries = await series.save();

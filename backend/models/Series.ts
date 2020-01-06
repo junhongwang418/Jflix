@@ -6,6 +6,7 @@ export interface ISeries extends Document {
   released_year: string;
   maturity_rating_id: string;
   genre_ids: [string];
+  image: string;
 }
 
 const SeriesSchema = new mongoose.Schema({
@@ -13,7 +14,8 @@ const SeriesSchema = new mongoose.Schema({
   description: String,
   released_year: Number,
   maturity_rating_id: String,
-  genre_ids: [String]
+  genre_ids: [String],
+  image: String
 });
 
 const Series = mongoose.model<ISeries>("Series", SeriesSchema);
