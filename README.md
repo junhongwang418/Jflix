@@ -7,3 +7,4 @@ Jflix allows you to check out what TV series or movies Junhong like. I developed
 * [Getting Started with GraphQL Part 1: Introduction](https://medium.com/@ionejunhong/getting-started-with-graphql-a1cc7951ef39?source=friends_link&sk=4785daf7f0bc80f7d25150f3a903932d)
 * [Getting Started with GraphQL Part 2: Back-end](https://medium.com/@ionejunhong/getting-started-with-graphql-5cd8e7c66909?source=friends_link&sk=1ca5c58e69b339b4736f258bb9ba850f)
 * [Getting Started with GraphQL Part 3: Front-end](https://medium.com/@ionejunhong/getting-started-with-graphql-54bfa51a848f?source=friends_link&sk=f48adbca4d28f422a73060fef671dc55)
+* [Getting Started with GraphQL Part 4: Basic Features](https://medium.com/@ionejunhong/getting-started-with-graphql-a281b14a560d?source=friends_link&sk=065e2e6473674e6203a4bdb35fedd77e)
